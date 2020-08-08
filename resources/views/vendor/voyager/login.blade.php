@@ -1,150 +1,153 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.locale') }}" dir="{{ __('voyager::generic.is_rtl') == 'true' ? 'rtl' : 'ltr' }}">
+<html>
+    
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="none" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="admin login">
-    <title>Admin - {{ Voyager::setting("admin.title") }}</title>
-    <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
-    @if (__('voyager::generic.is_rtl') == 'true')
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css">
-        <link rel="stylesheet" href="{{ voyager_asset('css/rtl.css') }}">
-    @endif
-    <style>
-        body {
-            background-image:url('{{ Voyager::image( Voyager::setting("admin.bg_image"), voyager_asset("images/bg.jpg") ) }}');
-            background-color: {{ Voyager::setting("admin.bg_color", "#FFFFFF" ) }};
-        }
-        body.login .login-sidebar {
-            border-top:5px solid {{ config('voyager.primary_color','#22A7F0') }};
-        }
-        @media (max-width: 767px) {
-            body.login .login-sidebar {
-                border-top:0px !important;
-                border-left:5px solid {{ config('voyager.primary_color','#22A7F0') }};
-            }
-        }
-        body.login .form-group-default.focused{
-            border-color:{{ config('voyager.primary_color','#22A7F0') }};
-        }
-        .login-button, .bar:before, .bar:after{
-            background:{{ config('voyager.primary_color','#22A7F0') }};
-        }
-        .remember-me-text{
-            padding:0 5px;
-        }
-    </style>
-
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<title>Administrator</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<body class="login">
-<div class="container-fluid">
-    <div class="row">
-        <div class="faded-bg animated"></div>
-        <div class="hidden-xs col-sm-7 col-md-8">
-            <div class="clearfix">
-                <div class="col-sm-12 col-md-10 col-md-offset-2">
-                    <div class="logo-title-container">
-                        <?php $admin_logo_img = Voyager::setting('admin.icon_image', ''); ?>
-                        @if($admin_logo_img == '')
-                        <img class="img-responsive pull-left flip logo hidden-xs animated fadeIn" src="{{ voyager_asset('images/logo-icon-light.png') }}" alt="Logo Icon">
-                        @else
-                        <img class="img-responsive pull-left flip logo hidden-xs animated fadeIn" src="{{ Voyager::image($admin_logo_img) }}" alt="Logo Icon">
-                        @endif
-                        <div class="copy animated fadeIn">
-                            <h1>{{ Voyager::setting('admin.title', 'Voyager') }}</h1>
-                            <p>{{ Voyager::setting('admin.description', __('voyager::login.welcome')) }}</p>
-                        </div>
-                    </div> <!-- .logo-title-container -->
-                </div>
-            </div>
-        </div>
 
-        <div class="col-xs-12 col-sm-5 col-md-4 login-sidebar">
+<style>
+    body *{
+        font-family: 'Poppins', sans-serif;
+    }    
+    body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background: #303030 !important;
+		}
+		.user_card {
+			height: 400px;
+			width: 350px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #f8fdfe;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
 
-            <div class="login-container">
+		}
+		.brand_logo_container {
+			position: absolute;
+			height: 170px;
+			width: 170px;
+			top: -75px;
+			border-radius: 50%;
+			/* background: #60a3bc; */
+			padding: 10px;
+			text-align: center;
+		}
+		.brand_logo {
+            user-drag: none; 
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+			/* height: 150px; */
+			width: 150px;
+			/* border-radius: 50%; */
+			/* border: 2px solid white; */
+		}
+		.form_container {
+			margin-top: 51px;
+		}
+		.login_btn {
+			width: 100%;
+			background: rgb(36, 96, 185) !important;
+			color: white !important;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.login_container {
+			padding: 0 2rem;
+		}
+		.input-group-text {
+			background: #c0392b !important;
+			color: white !important;
+			border: 0 !important;
+			border-radius: 0.25rem 0 0 0.25rem !important;
+		}
+		.input_user,
+		.input_pass:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+			background-color: #c0392b !important;
+		}
 
-                <p>{{ __('voyager::login.signin_below') }}</p>
-
-                <form action="{{ route('voyager.login') }}" method="POST">
-                    {{ csrf_field() }}
-                    <div class="form-group form-group-default" id="emailGroup">
-                        <label>Username</label>
-                        <div class="controls">
-                            <input type="text" name="name" id="email" value="{{ old('name') }}" placeholder="Username" class="form-control" required>
-                         </div>
-                    </div>
-
-                    <div class="form-group form-group-default" id="passwordGroup">
-                        <label>{{ __('voyager::generic.password') }}</label>
-                        <div class="controls">
-                            <input type="password" name="password" placeholder="{{ __('voyager::generic.password') }}" class="form-control" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group" id="rememberMeGroup">
-                        <div class="controls">
-                        <input type="checkbox" name="remember" id="remember" value="1"><label for="remember" class="remember-me-text">{{ __('voyager::generic.remember_me') }}</label>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-block login-button">
-                        <span class="signingin hidden"><span class="voyager-refresh"></span> {{ __('voyager::login.loggingin') }}...</span>
-                        <span class="signin">{{ __('voyager::generic.login') }}</span>
-                    </button>
-
-              </form>
-
-              <div style="clear:both"></div>
-
-              @if(!$errors->isEmpty())
-              <div class="alert alert-red">
-                <ul class="list-unstyled">
-                    @foreach($errors->all() as $err)
-                    <li>{{ $err }}</li>
-                    @endforeach
-                </ul>
-              </div>
-              @endif
-
-            </div> <!-- .login-container -->
-
-        </div> <!-- .login-sidebar -->
-    </div> <!-- .row -->
-</div> <!-- .container-fluid -->
-<script>
-    var btn = document.querySelector('button[type="submit"]');
-    var form = document.forms[0];
-    var email = document.querySelector('[name="email"]');
-    var password = document.querySelector('[name="password"]');
-    btn.addEventListener('click', function(ev){
-        if (form.checkValidity()) {
-            btn.querySelector('.signingin').className = 'signingin';
-            btn.querySelector('.signin').className = 'signin hidden';
-        } else {
-            ev.preventDefault();
+        .haserror{
+            border: 1px solid #c0392b;
         }
-    });
-    email.focus();
-    document.getElementById('emailGroup').classList.add("focused");
+        .error{
+            color: #c0392b;
+            font-size: 13px;
+        }
+</style>    
 
-    // Focus events for email and password fields
-    email.addEventListener('focusin', function(e){
-        document.getElementById('emailGroup').classList.add("focused");
-    });
-    email.addEventListener('focusout', function(e){
-       document.getElementById('emailGroup').classList.remove("focused");
-    });
 
-    password.addEventListener('focusin', function(e){
-        document.getElementById('passwordGroup').classList.add("focused");
-    });
-    password.addEventListener('focusout', function(e){
-       document.getElementById('passwordGroup').classList.remove("focused");
-    });
 
-</script>
+<body oncontextmenu="return false;">
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center" oncontextmenu="return false;">
+					<div class="brand_logo_container">
+                            <img src="{{ Voyager::image(setting('admin.icon_image')) }}" class="brand_logo" alt="Logo">
+					</div>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+                    <form action="{{ route('voyager.login') }}" method="POST" autocomplete="off">
+                        @csrf
+                        <div class="input-group">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+                            <input type="text" class="form-control input_user {{ $errors->first('name')? 'haserror' : ''}}" name="name" id="name" value="{{ old('name') }}" placeholder="Username">
+                        </div>
+                        @if($errors->first('name'))
+                        <div class="error mb-2 pl-5 mt-0" >Please enter credentials correctly</div>
+                        @endif          
+                        
+						<div class="input-group mt-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+                            <input type="password" class="form-control input_pass {{ $errors->first('password')? 'haserror' : ''}}" name="password" placeholder="{{ __('voyager::generic.password') }}">
+                        </div>
+                        @if($errors->first('password'))
+                        <div class="error mb-2 pl-5 mt-0" >{{$errors->first('password')}}</div>
+                        @endif
+						<div class="form-group mt-2">
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" name="remember" value="1" class="custom-control-input" id="customControlInline">
+								<label class="custom-control-label" for="customControlInline">Remember me</label>
+							</div>
+						</div>
+							<div class="d-flex justify-content-center mt-3 login_container">
+				 	<button type="submit" name="button" class="btn login_btn">Login</button>
+				   </div>
+                    </form>
+
+                </div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
