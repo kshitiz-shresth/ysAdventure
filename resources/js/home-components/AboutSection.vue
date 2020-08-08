@@ -8,11 +8,12 @@
                         data-aos="fade-right"
                         data-aos-delay="200"
                     >
-                        <img
-                            :src="aboutSectionData.image"
-                            alt=""
-                            class="img-fluid"
+                        <ImageItem
+                            :source="aboutSectionData.image"
+                            :alternate="'About Section Image'"
+                            :myClass="'img-fluid'"
                         />
+                    
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -33,6 +34,7 @@
 </template>
 
 <script>
+import ImageItem from '../components/ImageItem';
 export default {
     props: ['data'],
     data() {
@@ -40,7 +42,8 @@ export default {
             aboutSectionData: JSON.parse(this.data)
         }
     },
-    mounted() {
+    components:{
+        ImageItem
     }
 };
 </script>

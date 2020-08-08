@@ -12,6 +12,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.Vue = require('vue');
 
+import LazyLoadDirective from './directives/LazyLoadDirective.vue'
+
+Vue.directive('lazyload', LazyLoadDirective)
 import HomeContent from './components/HomeContent';
 
 // Vue.component('home-content', HomeContent)s
