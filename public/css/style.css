@@ -581,8 +581,10 @@ a:focus {
   color: #fff;
 }
 
-.nav-top.awake ul li > a {
-  color: black !important;
+@media only screen and (min-width: 991px) {
+  .nav-top.awake ul.navbar-nav > li > a {
+    color: black !important;
+  }
 }
 
 ul.dropdown-menu li {
@@ -643,7 +645,6 @@ a.bg-primary:hover {
 }
 
 .bg-1 {
-  background: url(/images/banner-1.jpg?5761c191b159ad8f213fb328c07c8738) no-repeat 50% 50%;
   background-size: cover;
 }
 

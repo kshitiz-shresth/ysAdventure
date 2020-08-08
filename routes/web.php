@@ -13,12 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+
+
 
 Auth::routes();
 
+Route::get('/', 'IndexController@index')->name('index');
+Route::get('/about', 'AboutController@index')->name('about');
+Route::get('/service', 'ServiceController@index')->name('service');
+Route::get('/contact', 'ContactController@index')->name('contact');
 Route::get('/home', 'HomeController@index')->name('home');
 
 

@@ -18,7 +18,7 @@
 
     <!-- Google Map -->
     <script src="/plugins/google-map/map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&amp;callback=initMap"></script>    
+    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&amp;callback=initMap"></script>     --}}
     
     <script src="/js/script.js"></script>
-    <script src="/js/app.js"></script>
+    <script src="/js/app.js" async></script>

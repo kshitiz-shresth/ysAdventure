@@ -6,11 +6,11 @@
 			<div class="col-lg-3 ml-auto col-sm-6">
 				<div class="widget">
 					<div class="logo mb-4">
-						<h3 class="text-white">Sul<span>fur.</span></h3>
+						<h3 class="text-white">{{ setting('site.title') }}</h3>
 					</div>
-					<a href="tel:+23-345-67890" class="text-white">Support@sulfur.com</a>
-					<p class="mt-4 mb-3">290 Maryam Springs 260,Courbevoie, Paris, France</p>
-					<a href="tel:+23-456-6588"><span class="text-white h4">+23-456-6588</span></a>
+					<a href="to:{{ setting('contact.email') }}" class="text-white">{{ setting('contact.email') }}</a>
+					<p class="mt-4 mb-3">{{ setting('contact.address') }}</p>
+					<a href="tel:{{ setting('contact.phone') }}"><span class="text-white h4">{{ setting('contact.phone') }}</span></a>
 				</div>
 			</div>
 
@@ -56,7 +56,7 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-8 text-center">
 					<div class="copyright">
-						<p>&copy; Copyright Reserved to Sulfur by <a href="https://themefisher.com/" target="_blank" class=" text-white">Themefisher</a></p>
+						<p>&copy; Copyright Reserved to YS Adventure by <a href="https://technocratsnow.com/" target="_blank" class=" text-white">technocratsnow</a></p>
 					</div>
 				</div>
 			</div>

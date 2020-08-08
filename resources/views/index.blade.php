@@ -3,13 +3,13 @@
 @section('body')
 
 <!-- Slider Start -->
-<section class="slider">
+<section class="slider" style="background:url({{ Voyager::image(setting('home-page.banner')) }}) no-repeat">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-9 col-md-12">
 				<div class="text-center">
 					<h1 class="d-md-none d-sm-block animated fadeInUp mb-5 text-white">The Yellostone Aventure</h1>
-					<img src="big-logo.png" alt="" class="animated fadeInUp" style="height: 15rem;">
+					<img src="{{ Voyager::image(setting('admin.icon_image')) }}" alt="" class="animated fadeInUp" style="height: 15rem;">
 				</div>
 			</div>
 		</div>
@@ -31,14 +31,6 @@
 	</div>
 </section>
 
-
-<about-section></about-section>
-
-
-
-<service-section></service-section>
-
-
-<package-section></package-section>
+<home-content about-section-data="{{ $aboutSectionData }}" what-we-do="{{ setting('home-page.whatwedo') }}"></home-content>
 
 @endsection

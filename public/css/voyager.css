@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+body * {
+    font-family: 'Titillium Web',
+        sans-serif;
+
+    font-size: 15px;
+}
+
+.voyager .side-menu.sidebar-inverse {
+    background: #131313;
+}
+
+.nav-bar li:hover {
+    color: black;
+}
+
+.form-group label.control-label {
+    font-weight: 900;
+}
+
+.ace_editor.ace-github * {
+    font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}

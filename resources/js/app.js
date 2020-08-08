@@ -4,22 +4,22 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
+
+window.axios = require('axios');
+
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.Vue = require('vue');
 
+import HomeContent from './components/HomeContent';
 
-import AboutSection from './home-components/AboutSection';
-import ServiceSection from './home-components/ServiceSection';
-import PackageSection from './home-components/PackageSection';
-
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('about-section', AboutSection);
-Vue.component('service-section', ServiceSection);
-Vue.component('package-section', PackageSection);
-
+// Vue.component('home-content', HomeContent)s
 
 
 const app = new Vue({
     el: '#app',
+    components: {
+        'home-content': HomeContent
+    }
 });
