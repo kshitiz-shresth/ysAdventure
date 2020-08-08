@@ -8,6 +8,9 @@
   <meta name="description" content="Tours and Travel Nepal">
   
   <meta name="author" content="Kshitiz Shrestha">
+	
+  <link rel="icon" href="{{ Voyager::image(setting('admin.icon_image')) }}" type="image/x-icon"/>
+
 
   <title>Yellow Stone Adventure</title>
 
